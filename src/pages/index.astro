@@ -1,78 +1,123 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import HorizontalCard from "../components/HorizontalCard.astro";
-import { getCollection } from "astro:content";
-import createSlug from "../lib/createSlug"
+import AutoCarousel from "../components/AutoCarousel.astro";
 
-const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
-
-const last_posts = posts.slice(0, 3);
 ---
 
 <BaseLayout sideBarActiveItemID="home">
   <div class="pb-12 mt-5">
-    <div class="text-xl py-1">Hey there 👋</div>
-    <div class="text-5xl font-bold">I'm Manuel Ernesto</div>
-    <div class="text-3xl py-3 font-bold">Software Engineer and Entrepreneur</div>
+    <div class="text-xl py-1"><span id="hey-typer" class="border-r-2 border-primary pr-1">Hey there</span> 👋</div>
+    <div class="text-5xl font-bold">I'm Seoungmin Kim</div>
+    <div class="text-3xl py-3 font-bold">Software Engineer</div>
     <div class="py-2">
       <text class="text-lg">
-        This is <b>Astrofy</b> a free and open-source template for your Personal Portfolio Website built with Astro and TailwindCSS.
-        Create in minutes a website with Blog, CV, Project Section, Store and RSS Feed. I hope you find
-        it useful!
+        Passionate and adaptable Software Engineer with experience building full‑stack web and mobile apps. Shipped <b>Hoopsterz</b> (React, Vite, Express), led the <b>UCLA Korean website</b> (React + Firebase) connecting 500+ members, built a <b>3D RPG</b> in Unity/C#, and created cross‑platform apps with <b>Flutter (Dart)</b> and a <b>Prisma</b> backend.
       </text>
     </div>
-    <div class="mt-8">
-      <a class="btn" href="https://twitter.com/manuelernestog" target="_blank"> Let's connect!</a>
-      <a href="https://github.com/manuelernestog/astrofy" target="_blank" class="btn btn-outline ml-5">
-        Get This template
-      </a>
+
+    <div class="mt-6">
+      <AutoCarousel
+        intervalMs={3000}
+        images={[
+          { src: "/projects/hoopsterz-1.webp", alt: "Hoopsterz - 1" },
+          { src: "/projects/hoopsterz-2.webp", alt: "Hoopsterz - 2" },
+          { src: "/projects/netchill-1.webp", alt: "NetChill - 1" },
+          { src: "/projects/hang-1.webp", alt: "Hang - 1" }
+        ]}
+      />
     </div>
   </div>
 
   <div>
-    <div class="text-3xl w-full font-bold mb-2">My last projects {"</>"}</div>
+    <div class="text-3xl w-full font-bold mb-2">My projects {"</>"}</div>
   </div>
 
   <HorizontalCard
-    title="Demo Project 1"
-    img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
-    badge="NEW"
+    title="Hoopsterz"
+    images={[
+      { src: "/projects/hoopsterz-1.webp" },
+      { src: "/projects/hoopsterz-2.webp" },
+      { src: "/projects/hoopsterz-3.webp" },
+    ]}
+    desc="Pick-up basketball platform built with React, Vite.js, Express."
+    url="https://hoopsterz.vercel.app"
+    target="_blank"
+    badge="LIVE"
   />
   <div class="divider my-0"></div>
+
   <HorizontalCard
-    title="Demo Project 2"
-    img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
+    title="NetChill — HackSC"
+    images={[
+      { src: "/projects/netchill-1.webp" },
+      { src: "/projects/netchill-2.webp" },
+    ]}
+    desc="Make networking less like working and more like chilling."
+    links={[
+      { label: "GITHUB", href: "https://github.com/terrytwk/hacksc23-netchill" },
+      { label: "DEVPOST", href: "https://devpost.com/software/netchill" },
+      { label: "YOUTUBE", href: "https://youtu.be/AREg8btZ6ro" },
+    ]}
   />
   <div class="divider my-0"></div>
+
   <HorizontalCard
-    title="Demo Project 3"
+    title="Hang — LA Hacks"
+    images={[
+      { src: "/projects/hang-1.webp" },
+      { src: "/projects/hang-2.webp" },
+    ]}
+    desc="Mobile app to find optimal hangout spots along a travel route."
+    links={[
+      { label: "GITHUB", href: "https://github.com/jlee0810/Hang" },
+      { label: "DEVPOST", href: "https://devpost.com/software/hang-h8mecf" },
+      { label: "YOUTUBE", href: "https://youtu.be/i_cVuRitxGc" },
+    ]}
+  />
+  <div class="divider my-0"></div>
+
+  <HorizontalCard
+    title="UCLA Korean Website"
     img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
-    badge="FOSS"
+    desc="Community hub connecting 500+ members with React frontend and Firebase backend."
+    url="https://github.com/EricSeoungminKim/UCLA_Hanin"
+    target="_blank"
+    badge="GITHUB"
+  />
+  <div class="divider my-0"></div>
+
+  <HorizontalCard
+    title="Xinshen — 3D RPG"
+    img="/post_img.webp"
+    desc="Unity/C# game with multiple levels and character design."
+    url="https://github.com/EricSeoungminKim/Xinshen"
+    target="_blank"
+    badge="GITHUB"
   />
 
-  <div>
-    <div class="text-3xl w-full font-bold mb-5 mt-10">Latest from blog</div>
-  </div>
+  <script>
+    const el = document.getElementById('hey-typer');
+    if (el) {
+      const full = 'Hey there';
+      el.textContent = '';
+      let i = 0;
+      const tick = () => {
+        if (i <= full.length) {
+          el.textContent = full.slice(0, i++);
+          setTimeout(tick, 80);
+        }
+      };
+      tick();
+      setInterval(() => {
+        i = 0;
+        tick();
+      }, 4000);
+    }
+  </script>
 
-  {
-    last_posts.map((post) => (
-      <>
-        <HorizontalCard
-          title={post.data.title}
-          img={post.data.heroImage}
-          desc={post.data.description}
-          url={"/blog/" + createSlug(post.data.title, post.slug)}
-          target="_self"
-          badge={post.data.badge}
-        />
-        <div class="divider my-0" />
-      </>
-    ))
-  }
+  <style>
+    #hey-typer{ animation: caret 1s steps(1,end) infinite; }
+    @keyframes caret{ 50%{ border-color: transparent; } }
+  </style>
 </BaseLayout>
