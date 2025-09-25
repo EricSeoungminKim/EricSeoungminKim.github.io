@@ -27,10 +27,8 @@ jobs:
           node-version: "20"
           cache: "pnpm"
 
-      - name: Enable corepack and setup pnpm
-        run: |
-          corepack enable
-          corepack prepare pnpm@8 --activate
+      - name: Install pnpm
+        run: npm install -g pnpm@8
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
