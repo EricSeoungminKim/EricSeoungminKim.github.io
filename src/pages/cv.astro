@@ -4,89 +4,161 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
 ---
 
 <BaseLayout title="Resume" sideBarActiveItemID="cv">
-  <div class="mb-5">
-    <div class="text-3xl w-full font-bold">Profile</div>
+  <div class="mb-6 border-b border-base-300 pb-2">
+    <div class="text-3xl w-full font-bold tracking-wide">Profile</div>
   </div>
 
-  <div class="mb-10 text-justify">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-    aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-    cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  <div class="mb-10 text-justify leading-relaxed">
+    Passionate and adaptable <span class="text-primary font-semibold">Software Engineer</span> with a strong drive to learn and apply diverse technologies. Built and deployed a pick-up basketball platform in South Korea using <span class="text-accent font-semibold">React</span>, <span class="text-secondary font-semibold">Vite.js</span>, and <span class="text-primary font-semibold">Express</span> (<a href="https://hoopsterz.vercel.app" target="_blank" class="link">Hoopsterz</a>). Led development of the <span class="text-primary font-semibold">UCLA Korean website</span> using <span class="text-secondary font-semibold">React</span> and <span class="text-accent font-semibold">Firebase</span>, connecting <span class="font-semibold">500+ students</span> and organizations. Created a <span class="text-primary font-semibold">3D RPG game</span> in <span class="text-accent font-semibold">Unity</span> with <span class="text-secondary font-semibold">C#</span>, and built cross-platform web and mobile apps using <span class="text-accent font-semibold">Flutter (Dart)</span> and a <span class="text-primary font-semibold">Prisma</span> backend during HackSC. Eager to deliver scalable, user-focused solutions through continuous learning.
   </div>
 
-  <div class="mb-5">
-    <div class="text-3xl w-full font-bold">Education</div>
+  <div class="mb-6 border-b border-base-300 pb-2">
+    <div class="text-3xl w-full font-bold tracking-wide">Contact</div>
+  </div>
+  <div class="mb-10 grid gap-3 sm:grid-cols-2">
+    <div>
+      <div class="text-sm opacity-70">Name</div>
+      <div class="font-medium">Seoungmin Kim</div>
+    </div>
+    <div>
+      <div class="text-sm opacity-70">Location</div>
+      <div class="font-medium">729 Gayley Ave, Los Angeles, CA</div>
+    </div>
+    <div>
+      <div class="text-sm opacity-70">Mobile</div>
+      <a class="btn btn-sm btn-outline btn-primary normal-case" href="tel:+12139022955">+1 213-902-2955</a>
+    </div>
+    <div>
+      <div class="text-sm opacity-70">Email</div>
+      <a class="btn btn-sm btn-outline btn-secondary normal-case" href="mailto:seoungminics@gmail.com">seoungminics@gmail.com</a>
+    </div>
+    <div class="sm:col-span-2 flex flex-wrap gap-2 pt-1">
+      <a class="btn btn-sm btn-accent normal-case" href="https://github.com/EricSeoungminKim" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn btn-sm btn-primary normal-case" href="https://www.linkedin.com/in/seoungmin-kim-400597222/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn btn-sm btn-secondary normal-case" href="https://devpost.com/EricSeoungminKim?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav" target="_blank" rel="noopener">Devpost</a>
+      <a class="btn btn-sm btn-outline normal-case" href="https://hoopsterz.vercel.app" target="_blank" rel="noopener">Hoopsterz</a>
+    </div>
+  </div>
+
+  <div class="mb-6 border-b border-base-300 pb-2">
+    <div class="text-3xl w-full font-bold tracking-wide">Education</div>
   </div>
 
   <div class="time-line-container grid gap-4 mb-10">
     <TimeLineElement
-      title="Title Name"
-      subtitle="[start year] to [end year] at [Study Center Name], [City], [Country]"
-    />
-    <TimeLineElement
-      title="Title Name"
-      subtitle="[start year] to [end year] at [Study Center Name], [City], [Country]"
+      title="B.S. in Electrical Engineering"
+      subtitle="Expected Graduation: June 2027 @ University of California, Los Angeles"
     />
   </div>
 
-  <div class="mb-5">
-    <div class="text-3xl w-full font-bold">Experience</div>
+  <div class="mb-6 border-b border-base-300 pb-2">
+    <div class="text-3xl w-full font-bold tracking-wide">Experience</div>
   </div>
 
   <div class="time-line-container mb-10">
     <TimeLineElement
-      title="Job Title at Project or Company Name"
-      subtitle="From [Start Date] to [End Date] at [Company], [City], [Country]"
+      title="Chief Technology Officer / Project Manager — Hoopsterz Corp."
+      subtitle="Full-Stack Development • May 2023 - December 2023 • Start-Up, Seoul, South Korea"
     >
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
+      Engineered high-performance web applications using <span class="text-secondary font-medium">Vite</span> and <span class="text-accent font-medium">React.js</span>, boosting user engagement by <span class="text-primary font-semibold">30%</span> with optimized <span class="text-primary font-medium">Express.js</span> backend. Used server-side infrastructure and <span class="text-accent font-medium">MongoDB</span> database.
     </TimeLineElement>
     <TimeLineElement
-      title="Job Title at Project or Company Name"
-      subtitle="From [Start Date] to [End Date] at [Company], [City], [Country]"
+      title="Lead Developer — UCLA Korean Website"
+      subtitle="UCLA, CA, USA • Oct 2022 - Apr 2023"
     >
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
+      Led development of the <span class="text-primary font-medium">UCLA Korean website</span>, integrating information from multiple Korean clubs through a user-friendly interface, boosting engagement by connecting <span class="font-semibold">500+ members</span> using a <span class="text-accent font-medium">Firebase</span> backend and <span class="text-secondary font-medium">React.js</span> frontend.
     </TimeLineElement>
     <TimeLineElement
-      title="Job Title at Project or Company Name"
-      subtitle="From [Start Date] to [End Date] at [Company], [City], [Country]"
+      title="Programmer — 3D RPG game: Xinshen (ACM Studio)"
+      subtitle="UCLA, CA, USA • Jan 2023 - Jun 2023"
     >
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
+      Developed <span class="text-primary font-medium">Xinshen</span>, a 3D RPG game using <span class="text-accent font-medium">C#</span> and <span class="text-secondary font-medium">Unity</span>, featuring multiple levels and engaging character designs. Applied object-oriented programming principles in <span class="font-medium">C#</span> for gameplay logic.
     </TimeLineElement>
   </div>
 
-  <div class="mb-5">
-    <div class="text-3xl w-full font-bold">Certifications</div>
+  <div class="mb-6 border-b border-base-300 pb-2">
+    <div class="text-3xl w-full font-bold tracking-wide">Awards</div>
   </div>
-
   <ul class="list-disc mx-6 mb-10 grid gap-2">
-    <li>
-      <a href="#" target="_blank"> Certification Name (with link)</a>
-    </li>
-    <li>
-      <a href="#" target="_blank"> Certification Name (with link)</a>
-    </li>
+    <li><span class="badge badge-accent badge-outline mr-2">HackSC</span> 1st Place in Global Connections Vertical</li>
   </ul>
 
-  <div class="mb-5">
-    <div class="text-3xl w-full font-bold">Skills</div>
+  <div class="mb-6 border-b border-base-300 pb-2">
+    <div class="text-3xl w-full font-bold tracking-wide">Skills</div>
   </div>
 
-  <ul class="list-disc md:columns-5 columns-2 mx-6">
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
+  <div class="grid gap-4 mb-10">
+    <div>
+      <div class="flex justify-between items-center"><span class="font-medium">JavaScript</span><span class="text-sm">8 / 10</span></div>
+      <progress class="progress progress-primary w-full" value="80" max="100"></progress>
+    </div>
+    <div>
+      <div class="flex justify-between items-center"><span class="font-medium">React.js</span><span class="text-sm">8 / 10</span></div>
+      <progress class="progress progress-primary w-full" value="80" max="100"></progress>
+    </div>
+    <div>
+      <div class="flex justify-between items-center"><span class="font-medium">Vite.js</span><span class="text-sm">8 / 10</span></div>
+      <progress class="progress progress-primary w-full" value="80" max="100"></progress>
+    </div>
+    <div>
+      <div class="flex justify-between items-center"><span class="font-medium">Node.js</span><span class="text-sm">8 / 10</span></div>
+      <progress class="progress progress-primary w-full" value="80" max="100"></progress>
+    </div>
+    <div>
+      <div class="flex justify-between items-center"><span class="font-medium">Express.js</span><span class="text-sm">8 / 10</span></div>
+      <progress class="progress progress-primary w-full" value="80" max="100"></progress>
+    </div>
+    <div>
+      <div class="flex justify-between items-center"><span class="font-medium">Prisma</span><span class="text-sm">8 / 10</span></div>
+      <progress class="progress progress-primary w-full" value="80" max="100"></progress>
+    </div>
+    <div>
+      <div class="flex justify-between items-center"><span class="font-medium">RESTful APIs</span><span class="text-sm">8 / 10</span></div>
+      <progress class="progress progress-primary w-full" value="80" max="100"></progress>
+    </div>
+
+    <div class="pt-2">
+      <div class="flex justify-between items-center"><span class="font-medium">Python</span><span class="text-sm">7 / 10</span></div>
+      <progress class="progress progress-accent w-full" value="70" max="100"></progress>
+    </div>
+    <div>
+      <div class="flex justify-between items-center"><span class="font-medium">C++</span><span class="text-sm">7 / 10</span></div>
+      <progress class="progress progress-accent w-full" value="70" max="100"></progress>
+    </div>
+
+    <div class="pt-2">
+      <div class="flex justify-between items-center"><span class="font-medium">Dart / Flutter</span><span class="text-sm">5 / 10</span></div>
+      <progress class="progress progress-secondary w-full" value="50" max="100"></progress>
+    </div>
+    <div>
+      <div class="flex justify-between items-center"><span class="font-medium">C#</span><span class="text-sm">5 / 10</span></div>
+      <progress class="progress progress-secondary w-full" value="50" max="100"></progress>
+    </div>
+  </div>
+
+  <div class="mb-6 border-b border-base-300 pb-2">
+    <div class="text-3xl w-full font-bold tracking-wide">Languages</div>
+  </div>
+  <ul class="list-disc mx-6 mb-10 grid gap-2">
+    <li>Korean (Native)</li>
+    <li>English (Native)</li>
+  </ul>
+
+  <div class="mb-6 border-b border-base-300 pb-2">
+    <div class="text-3xl w-full font-bold tracking-wide">Projects & Links</div>
+  </div>
+  <ul class="list-disc mx-6 mb-10 grid gap-2">
+    <li>
+      <a class="link link-accent" href="https://hoopsterz.vercel.app" target="_blank" rel="noopener">Hoopsterz — Pick-up basketball platform</a>
+    </li>
+    <li>
+      <a class="link" href="https://github.com/EricSeoungminKim" target="_blank" rel="noopener">GitHub — Projects and code</a>
+    </li>
+    <li>
+      <a class="link" href="https://www.linkedin.com/in/seoungmin-kim-400597222/" target="_blank" rel="noopener">LinkedIn — Profile</a>
+    </li>
+    <li>
+      <a class="link" href="https://devpost.com/EricSeoungminKim?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav" target="_blank" rel="noopener">Devpost — Hackathon portfolio</a>
+    </li>
   </ul>
 </BaseLayout>

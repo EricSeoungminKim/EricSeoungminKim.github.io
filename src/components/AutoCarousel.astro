@@ -1,0 +1,75 @@
+---
+interface CarouselImage {
+  src: string;
+  alt?: string;
+}
+
+const { images = [], intervalMs = 3000 } = Astro.props as {
+  images: CarouselImage[];
+  intervalMs?: number;
+};
+
+const carouselId = `auto-carousel-${Math.random().toString(36).slice(2, 8)}`;
+---
+
+<div class="w-full">
+  <div class="relative overflow-hidden rounded-lg">
+    <div class="w-full" id={carouselId}>
+      {images.map((img, index) => (
+        <div class="w-full" data-index={index} style={`display:${index === 0 ? 'block' : 'none'}`}> 
+          <img src={img.src} alt={img.alt || `slide-${index}`} class="w-full object-cover" />
+        </div>
+      ))}
+    </div>
+
+    <div class="absolute bottom-2 left-0 right-0 flex justify-center gap-2" data-dots>
+      {images.map((_, i) => (
+        <span class={`h-2 w-2 rounded-full ${i === 0 ? 'bg-primary' : 'bg-base-300'}`} data-dot={i}></span>
+      ))}
+    </div>
+  </div>
+</div>
+
+<script define:vars={{ carouselId, intervalMs }}>
+  const init = () => {
+    const container = document.getElementById(carouselId);
+    if (!container) return;
+    const items = Array.from(container.querySelectorAll('[data-index]')) as HTMLElement[];
+    const dotsRoot = container.parentElement?.querySelector('[data-dots]') as HTMLElement | null;
+    const dots = dotsRoot ? (Array.from(dotsRoot.querySelectorAll('[data-dot]')) as HTMLElement[]) : [];
+    if (items.length === 0) return;
+
+    let i = 0;
+    let paused = false;
+    const setActive = (next) => {
+      items.forEach((el, idx) => {
+        el.style.display = idx === next ? 'block' : 'none';
+      });
+      dots.forEach((el, idx) => {
+        el.classList.toggle('bg-primary', idx === next);
+        el.classList.toggle('bg-base-300', idx !== next);
+      });
+      i = next;
+    };
+    const next = () => setActive((i + 1) % items.length);
+
+    let timer = setInterval(() => { if (!paused) next(); }, intervalMs);
+    container.addEventListener('mouseenter', () => { paused = true; });
+    container.addEventListener('mouseleave', () => { paused = false; });
+    dots.forEach((dot, idx) => dot.addEventListener('click', () => setActive(idx)));
+    document.addEventListener('visibilitychange', () => {
+      clearInterval(timer);
+      if (!document.hidden) timer = setInterval(() => { if (!paused) next(); }, intervalMs);
+    });
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+</script>
+
+<style>
+  [data-index] img { max-height: 380px; }
+</style>
