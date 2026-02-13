@@ -24,21 +24,22 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "18"
-          cache: "pnpm"
+          node-version: "20"
 
-      - name: Enable corepack and setup pnpm
-        run: |
-          corepack enable
-          corepack prepare pnpm@8 --activate
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+          run_install: false
 
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-        working-directory: astrofy
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
 
-      - name: Build
-        run: pnpm build
-        working-directory: astrofy
+      - name: Install dependencies (astrofy)
+        run: pnpm -C astrofy install --frozen-lockfile
+
+      - name: Build (astrofy)
+        run: pnpm -C astrofy build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
